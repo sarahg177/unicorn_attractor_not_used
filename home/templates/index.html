@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <h1>Welcome To Your Issue Tracker</h1>
     
 <p> Here you can.....</p>
@@ -20,5 +13,4 @@
 
 <h2 class="promise">My Promise To You</h2>
 <p>I promise to always spend at least 50% of my time working on developing the highest-paid feature.</p>
-</body>
-</html>
+{% endblock %}
