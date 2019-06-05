@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Unicorn Issue Tracker</title>
+    <title>{% block page_title %}{% endblock %}</title>
 </head>
 <body>
+    <h1>{% block page_heading %}{% endblock %}</h1>
     <nav>
         {% if messages %}
         <div>
