@@ -31,7 +31,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')+9nm3($n1t4&2**vntd9mau*pl=0(3##vc__!3r8%w739j3hw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
 ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),
                 os.environ.get('HOSTNAME')]
@@ -85,15 +85,15 @@ WSGI_APPLICATION = 'unicorn_attractor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-#DATABASES = {
- #   if development:
-  #      'default': {
-   #          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-   ##          'ENGINE': 'django.db.backends.sqlite3',
-     #   }
-#}
-
-DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+if development:
+    DATABASES = {
+            'default': {
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                'ENGINE': 'django.db.backends.sqlite3',
+           }
+    }
+else:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
