@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
+
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else:
+    development = False
+    
+    
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -77,13 +85,15 @@ WSGI_APPLICATION = 'unicorn_attractor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+#DATABASES = {
+ #   if development:
+  #      'default': {
+   #          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   ##          'ENGINE': 'django.db.backends.sqlite3',
+     #   }
+#}
 
+DATABASES = {'default': dj_database_url.parse("postgres://dhkhptarxksfkw:190ece742240ecd30e788d34405831416061dd40af5a4b2735cb1d5a6e722c22@ec2-176-34-184-174.eu-west-1.compute.amazonaws.com:5432/d1v63ubgciockb")}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
