@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'unicorn_attractor.wsgi.application'
      #   }
 #}
 
-DATABASES = {'default': dj_database_url.parse("postgres://dhkhptarxksfkw:190ece742240ecd30e788d34405831416061dd40af5a4b2735cb1d5a6e722c22@ec2-176-34-184-174.eu-west-1.compute.amazonaws.com:5432/d1v63ubgciockb")}
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
