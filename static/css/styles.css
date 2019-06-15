@@ -1,0 +1,54 @@
+main {
+    background-image: url('../images/electric_background.jpeg');
+    background-size: cover;
+    height: 90vh;
+    color: #fafafa;
+}
+
+.unicorn_logo {
+    height: 35px;
+}
+
+nav {
+    background-color: #fff;
+}
+
+nav a {
+    color: #707070;
+}
+
+nav .brand-logo {
+    font-size: 14px;
+    color: #707070;
+}
+
+.page_heading {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.intro {
+    text-align: center;
+}
+
+.promise {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.promise_section {
+    text-align: center;
+}
+
+.page-footer {
+    background-color: #fff;
+}
+
+.page-footer .footer-copyright {
+    background-color: #fff; 
+    color: #707070;
+    text-align: center;
+}
+
