@@ -9,6 +9,8 @@
 
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/1ee6dde756.js"></script>
   
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -28,7 +30,7 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'bugs' %}">Bugs</a></li>
-        <li><a href="#">Features</a></li>
+        <li><a href="{% url 'features' %}">Features</a></li>
         {% if user.is_authenticated %}
         <li><a href="#">Graphs</a></li>
         <li><a href="#">Blog</a></li>
@@ -41,7 +43,7 @@
       <ul class="side-nav" id="mobile-demo">
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'bugs' %}">Bugs</a></li>
-        <li><a href="#">Features</a></li>
+        <li><a href="{% url 'features' %}">Features</a></li>
         {% if user.is_authenticated %}
         <li><a href="#">Graphs</a></li>
         <li><a href="#">Blog</a></li>
@@ -69,7 +71,7 @@
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
-        &copy;2019 Copyright Unicorn
+        &copy;2019 Unicorn
       </div>
     </div>
   </footer>

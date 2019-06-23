@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block page_title %}Add a New Bug Page{% endblock %} {% block page_heading %}<i class="fas fa-bug"></i>Add a New Bug Ticket{% endblock %} {% block content %}
+
+ <form method="POST">
+        {% csrf_token %}
+        
+        {{ form }}
+        
+        <button type="submit">Save</button>
+    </form>
+{%endblock %}
