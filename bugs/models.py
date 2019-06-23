@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Bug(models.Model):
     """Choices"""
-    ISSUE_TYPE = (
+    issue_type = (
         ('Bug', 'Bug'),
         ('Feature', 'Feature')
     )
         
-    TICKET_STATUS = (
+    ticket_status = (
         ('Todo', 'Todo'),
         ('Doing', 'Doing'),
         ('Done', 'Done')
@@ -18,18 +18,20 @@ class Bug(models.Model):
     title = models.CharField(max_length=100, blank=False)
     
     ticket_status = models.CharField(
-        choices=TICKET_STATUS,
+        max_length=50,
+        #choices=ticket_status,
         default='Todo'
     )
     
     issue_type = models.CharField(
-        choices=ISSUE_TYPE,
+        max_length=50,
+      #  choices=issue_type,
         default='Feature'
     )
     
     description = models.TextField(blank=False)
     
-    views = models.BigIntegerField(
+    views = models.IntegerField(
         default=0)
         
     upvotes = models.IntegerField(
