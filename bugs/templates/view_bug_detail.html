@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block page_title %}Bug Details{% endblock %} {% block page_heading %}<i class="fas fa-bug"></i>Bug Ticket Details{% endblock %} {% block content %} {% for bug in bugs %}
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card white">
+            <div class="card-content blue-grey-text">
+                <h3>{{ bug.name }}</h3>
+                <span class="card-title"><span class="badge">Views: {{ bug.views }}</span>{{ bug.name }}</span>
+                <p><span class="badge">Votes: {{ bug.upvotes }}</span>{{ bug.description }}</p>
+            </div>
+            <div class="card-action">
+             {% if user.is_authenticated %}
+                <a href="#">Vote</a> {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+        {% endfor %} {% endblock %}

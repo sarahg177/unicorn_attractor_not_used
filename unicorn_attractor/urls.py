@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from home.views import home
-from bugs.views import get_bugs_list, create_a_new_bug
+from bugs.views import get_bugs_list, create_a_new_bug, view_bug_details
 from features.views import get_features_list
 from accounts.views import login, logout, registration
 
@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^bugs$', get_bugs_list, name="bugs"),
     url(r'^features$', get_features_list, name="features"),
     url(r'^add$', create_a_new_bug, name="add"),
+    url(r'^bug_details', view_bug_details, name="bug_details")
 ]

@@ -19,13 +19,13 @@ class Bug(models.Model):
     
     ticket_status = models.CharField(
         max_length=50,
-        #choices=ticket_status,
+        choices=ticket_status,
         default='Todo'
     )
     
     issue_type = models.CharField(
         max_length=50,
-      #  choices=issue_type,
+        choices=issue_type,
         default='Feature'
     )
     
@@ -38,5 +38,5 @@ class Bug(models.Model):
         default=0 )
     
     
-    def __str__(self):
-        return self.name
+    #def __str__(self):
+     #   return self.name
