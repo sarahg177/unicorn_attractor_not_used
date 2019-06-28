@@ -19,7 +19,7 @@ def create_a_new_bug(request):
     return render(request, "create_a_bug.html", {'form': form})
     
 def view_bug_details(request, id):
-    results = Bug.objects.find_one(Bug, pk=id)
+    results = get_object_or_404(Bug, pk=id)
     return render(request, "view_bug_detail.html", {'bugs': results})
 
 def edit_a_bug(request, id):

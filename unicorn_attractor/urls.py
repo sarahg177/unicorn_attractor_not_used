@@ -30,5 +30,5 @@ urlpatterns = [
     url(r'^features$', get_features_list, name="features"),
     url(r'^add$', create_a_new_bug, name="add"),
    url(r'^edit/(?P<id>\d+)$', edit_a_bug),
-    url(r'^bug_details', view_bug_details, name="bug_details"),
+    url(r'^bug_details/$', view_bug_details, name="bug_details"),
 ]
