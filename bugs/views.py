@@ -18,12 +18,11 @@ def create_a_new_bug(request):
         form = BugForm()
     return render(request, "create_a_bug.html", {'form': form})
     
-def view_bug_details(request, pk):
-    results = Bug.objects.find_one(pk)
+def view_bug_details(request, id):
+    results = Bug.objects.find_one(Bug, pk=id)
     return render(request, "view_bug_detail.html", {'bugs': results})
 
-@login_required    
-def edit_an_item(request, id):
+def edit_a_bug(request, id):
     bug = get_object_or_404(Bug, pk=id)
     if request.method=="POST":
         form = BugForm(request.POST, instance = bug)
