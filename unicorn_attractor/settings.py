@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'accounts',
     'home',
     'bugs',
-    'features',
 ]
 
 MIDDLEWARE = [

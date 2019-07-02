@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BugsConfig(AppConfig):
-    name = 'bugs'
+class TicketConfig(AppConfig):
+    name = 'tickets'

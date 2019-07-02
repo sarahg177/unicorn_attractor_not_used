@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block page_title %}Add a New Bug Page{% endblock %} {% block page_heading %}<i class="fas fa-bug"></i>Add a New Bug Ticket{% endblock %} {% block content %}
-
+<div class="container">
+ <div class="card white">
+   <div class="card-content blue-grey-text">
  <form method="POST">
         {% csrf_token %}
         
@@ -7,4 +9,7 @@
         
         <button type="submit">Save</button>
     </form>
+    </div>
+    </div>
+    </div>
 {%endblock %}

@@ -17,7 +17,6 @@ from django.conf.urls import url
 from django.contrib import admin
 from home.views import home
 from bugs.views import get_bugs_list, create_a_new_bug, view_bug_details, edit_a_bug
-from features.views import get_features_list
 from accounts.views import login, logout, registration
 
 urlpatterns = [
@@ -27,8 +26,7 @@ urlpatterns = [
     url(r'^accounts/login/$', login, name="login"),
     url(r'^accounts/register/$', registration, name="registration"),
     url(r'^bugs$', get_bugs_list, name="bugs"),
-    url(r'^features$', get_features_list, name="features"),
     url(r'^add$', create_a_new_bug, name="add"),
-   url(r'^edit/(?P<id>\d+)$', edit_a_bug),
-    url(r'^bug_details/$', view_bug_details, name="bug_details"),
+    url(r'^edit/(?P<id>\d+)$', edit_a_bug, name="edit_bug"),
+    url(r'^(?P<pk>\d+)/$', view_bug_details, name="bug_details"),
 ]

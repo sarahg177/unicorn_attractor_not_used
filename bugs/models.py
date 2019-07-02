@@ -1,42 +1,57 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
-# Create your models here.
+
 class Bug(models.Model):
     """Choices"""
-    issue_type = (
+    ISSUE_TYPE = [
         ('Bug', 'Bug'),
-        ('Feature', 'Feature')
-    )
+        ('Feature', 'Feature'),
+    ]
         
-    ticket_status = (
+    TICKET_STATUS = [
         ('Todo', 'Todo'),
         ('Doing', 'Doing'),
-        ('Done', 'Done')
-    )
+        ('Done', 'Done'),
+    ]
    
     title = models.CharField(max_length=100, blank=False)
     
-    ticket_status = models.CharField(
-        max_length=50,
-        choices=ticket_status,
-        default='Todo'
-    )
-    
     issue_type = models.CharField(
-        max_length=50,
-        choices=issue_type,
+        max_length=7,
+        choices=ISSUE_TYPE,
         default='Feature'
     )
     
+    ticket_status = models.CharField(
+        max_length=5,
+        choices=TICKET_STATUS,
+        default='Todo'
+    )
+    
+    username = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    
+    created_date = models.DateTimeField(default=timezone.now)
+    
+    completed_date = models.DateTimeField(blank=True, null=True)
+    
     description = models.TextField(blank=False)
-    
-    views = models.IntegerField(
-        default=0)
         
-    upvotes = models.IntegerField(
-        default=0 )
+    upvotes = models.ManyToManyField(User, through='Vote', related_name='voter')
     
+    views = models.IntegerField(default=0)
+
+    def __str__(self):
+       return self.title
+
+class Vote(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    ticket = models.ForeignKey(Bug, on_delete=models.CASCADE)
+    date_voted = models.DateTimeField(default=timezone.now)
     
-    #def __str__(self):
-     #   return self.name
+class Comments(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    ticket = models.ForeignKey(Bug, on_delete=models.CASCADE)
+    date_commented = models.DateTimeField(default=timezone.now)
+    comment = models.CharField(max_length=1000, blank=False)
