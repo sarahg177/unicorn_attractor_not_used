@@ -8,7 +8,7 @@ class BugForm(forms.ModelForm):
         
 class CommentForm(forms.ModelForm):
     comment = forms.CharField(
-        widget=forms.Textarea(
+        widget = forms.Textarea(
             attrs={'rows': '10', 'cols': '5'})
     )
 
